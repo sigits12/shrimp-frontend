@@ -3,11 +3,11 @@
     <div class="harga">
       <div class="content-harga">
         <ul>
-          <li>Sulawesi barat</li>
-          <li>Mamuju Utara</li>
+          <li style="color:blue; font-size:20px;">Sulawesi barat</li>
+          <li style="color:blue; font-size:15px;">Mamuju Utara</li>
           <li>PANEUS VANNAMEI</li>
           <li>HARGA SIZE 100 :</li>
-          <li>RP 39.000</li>
+          <li style="font-weight:bold; font-size:30px;">Rp 39.000</li>
         </ul>
       </div>
       <div class="content-social">
@@ -20,25 +20,25 @@
                 <li>
                   <img
                     :src="require('@/assets/img/whatsapp.svg')"
-                    alt="whatsapp-icon"
+                    alt="whatsapp-icon" title="Whatsapp"
                   />
                 </li>
                 <li>
                   <img
                     :src="require('@/assets/img/facebook.svg')"
-                    alt="facebook-icon"
+                    alt="facebook-icon" title="Facebook"
                   />
                 </li>
                 <li>
                   <img
                     :src="require('@/assets/img/twitter.svg')"
-                    alt="twitter-icon"
+                    alt="twitter-icon" title="Twitter"
                   />
                 </li>
                 <li>
                   <img
                     :src="require('@/assets/img/messenger.svg')"
-                    alt="messenger-icon"
+                    alt="messenger-icon" title="Messenger"
                   />
                 </li>
               </ul>
@@ -68,6 +68,7 @@ export default {
 <style scoped>
 .harga-card {
   background: whitesmoke;
+  padding: 10px;
 }
 
 .harga {
