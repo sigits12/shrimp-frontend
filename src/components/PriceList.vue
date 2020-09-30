@@ -9,7 +9,7 @@
 import PetaHarga from './PetaHarga.vue'
 
 export default {
-  name: "Content",
+  name: "PriceList",
   components: {
     PetaHarga
   }

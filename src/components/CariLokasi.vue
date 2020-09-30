@@ -1,6 +1,6 @@
 <template>
   <div class="region">
-    <v-select placeholder="Semua Lokasi" v-model="selectedItem" :value="selected" :options="regions" :reduce="full_name => full_name.id" label="full_name" @search="onSearch">
+    <v-select placeholder="Semua Lokasi" v-model="selected" :value="selected" :options="regions" label="full_name" @search="onSearch">
       <template slot="no-options">
       ketikan lokasi..
       </template>
@@ -17,13 +17,12 @@
 import axios from "axios";
 import _ from 'lodash';
 
-
 export default {
   name: "CariLokasi",
   data () {
     return {
       regions: [],
-      selectedItem: null,
+      selected: null,
     }
   },
   methods: {
@@ -38,7 +37,15 @@ export default {
         res.json().then(json => (vm.regions = json.data));
         loading(false);
       });
-    }, 350)
+    }, 350),
+    // setLokasi(event) {
+    //   // this.$emit("inputData", this.selected);
+    //   console.log(event.id);
+    //   // alert('ok');
+    //   // this.$emit("input", val);
+
+    //   // this.selected = null;
+    // }
   },
   created() {
     axios.get('/regions')
@@ -46,6 +53,14 @@ export default {
       this.regions = response.data.data
     })
   },
+  watch: {
+    selected(value) {
+      return {
+          "region_id": value.province_id,
+          "search": value.full_name,
+      }
+    }
+  }
 };
 </script>
 

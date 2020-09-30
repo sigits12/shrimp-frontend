@@ -24,13 +24,14 @@ nav{
   padding: 10px 40px 10px 70px;
   background-color: white;
 }
+
 nav ul {
   display: flex;
   list-style: none;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-
+  margin-bottom: 0rem;
 }
 
 nav ul li.logo {
