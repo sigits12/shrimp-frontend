@@ -44,15 +44,15 @@ export default {
       regions: [],
     };
   },
-  created() {
-    axios
-      .get("/regions", {
-        params: this.lokasi,
-      })
-      .then((response) => (this.regions = response.data.data))
-      .catch((error) => console.error(error));
-  },
   methods: {
+    setLokasi(lokasi) {
+      axios
+        .get("/regions", {
+          params: lokasi,
+        })
+        .then((response) => (this.regions = response.data.data))
+        .catch((error) => console.error(error));
+    },
     getPosition(latitude, longitude) {
       return {
         lat: parseFloat(latitude),
@@ -73,14 +73,15 @@ export default {
           lng: 107.609,
         };
       }
-
       return {
         lat: parseFloat(this.regions[0].latitude),
         lng: parseFloat(this.regions[0].longitude),
       };
     },
-    lokasi() {
-      return this.$store.state.lokasi;
+  },
+  watch: {
+    '$store.state.lokasi': function() {
+      this.setLokasi(this.$store.state.lokasi);
     }
   },
 };

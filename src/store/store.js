@@ -6,9 +6,16 @@ Vue.use(Vuex);
 export const store = new Vuex.Store({
   state: {
     lokasi: {
-      // type: Array,
-      region_id: "3306",
-      search: "Purworejo"
+      region_id: String,
+      search: String
+    }
+  },
+  getters: {
+    lokasi: state => state.lokasi
+  },
+  mutations: {
+    ubahLokasi: function(state, lokasiBaru) {
+      state.lokasi = lokasiBaru;
     }
   }
 })

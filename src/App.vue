@@ -2,23 +2,23 @@
   <div id="app">
     <Navbar/>
     <div class="container">
-      <Content/>
-      <PriceList/>
+      <Petasebaran/>
+      <ListHarga/>
     </div>
   </div>
 </template>
 
 <script>
 import Navbar from './components/Navbar.vue'
-import Content from './components/Content.vue'
-import PriceList from './components/PriceList.vue'
+import Petasebaran from './components/Petasebaran.vue'
+import ListHarga from './components/ListHarga.vue'
 
 export default {
   name: 'App',
   components: {
     Navbar,
-    Content,
-    PriceList,
+    Petasebaran,
+    ListHarga,
   }
 }
 </script>

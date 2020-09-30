@@ -55,10 +55,11 @@ export default {
   },
   watch: {
     selected(value) {
-      return {
+      let lokasi = {
           "region_id": value.province_id,
           "search": value.full_name,
       }
+      this.$store.commit('ubahLokasi', lokasi);
     }
   }
 };

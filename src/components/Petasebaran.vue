@@ -1,8 +1,12 @@
 <template>
-  <div class="card">
-    <b>Persebaran Harga</b>
-    <PetaHarga/>
+  <div class="card card-content">
+    <h5 class="card-header">Persebaran Harga Udang Size 100</h5>
+      <PetaHarga/>
+      <div class="card-footer">
+        2 days ago
+      </div>
   </div>
+
 </template>
 
 <script>
