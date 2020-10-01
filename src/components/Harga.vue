@@ -1,67 +1,94 @@
 <template>
-  <div class="harga-card">
-    <div class="harga">
-      <div class="content-harga">
-        <ul>
-          <li style="color:blue; font-size:20px;">Sulawesi barat</li>
-          <li style="color:blue; font-size:15px;">Mamuju Utara</li>
-          <li>PANEUS VANNAMEI</li>
-          <li>HARGA SIZE 100 :</li>
-          <li style="font-weight:bold; font-size:30px;">Rp 39.000</li>
-        </ul>
+  <div style="margin-top:10px; padding-left:10px; padding-right:10px;">
+    <div class="harga-card">
+      <div class="harga">
+        <div class="content-harga">
+          <ul>
+            <li style="color: blue; font-size: 20px">
+              {{ price.region.province_name }}
+            </li>
+            <li style="color: blue; font-size: 15px">{{ price.region.name }}</li>
+            <li>{{ price.species.name }}</li>
+            <li>HARGA SIZE 100 :</li>
+            <li style="font-weight: bold; font-size: 30px">
+              {{ formatRupiah(price.size_100) }}
+            </li>
+          </ul>
+        </div>
+        <div class="content-social">
+          <ul>
+            <li><div class="tanggal">{{formatDate(price.date)}}</div></li>
+            <li>
+              <div class="social-group">
+                <ul>
+                  <li style="font-size: 12px">25 Shares</li>
+                  <li>
+                    <img
+                      :src="require('@/assets/img/whatsapp.svg')"
+                      alt="whatsapp-icon"
+                      title="Whatsapp"
+                    />
+                  </li>
+                  <li>
+                    <img
+                      :src="require('@/assets/img/facebook.svg')"
+                      alt="facebook-icon"
+                      title="Facebook"
+                    />
+                  </li>
+                  <li>
+                    <img
+                      :src="require('@/assets/img/twitter.svg')"
+                      alt="twitter-icon"
+                      title="Twitter"
+                    />
+                  </li>
+                  <li>
+                    <img
+                      :src="require('@/assets/img/messenger.svg')"
+                      alt="messenger-icon"
+                      title="Messenger"
+                    />
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li>Penjual:</li>
+            <li>{{price.creator.name}}</li>
+            <li><button>Lihat Kontak</button></li>
+          </ul>
+        </div>
       </div>
-      <div class="content-social">
-        <ul>
-          <li><div class="tanggal">09 May 2019</div></li>
-          <li>
-            <div class="social-group">
-              <ul>
-                <li style="font-size: 12px">25 Shares</li>
-                <li>
-                  <img
-                    :src="require('@/assets/img/whatsapp.svg')"
-                    alt="whatsapp-icon" title="Whatsapp"
-                  />
-                </li>
-                <li>
-                  <img
-                    :src="require('@/assets/img/facebook.svg')"
-                    alt="facebook-icon" title="Facebook"
-                  />
-                </li>
-                <li>
-                  <img
-                    :src="require('@/assets/img/twitter.svg')"
-                    alt="twitter-icon" title="Twitter"
-                  />
-                </li>
-                <li>
-                  <img
-                    :src="require('@/assets/img/messenger.svg')"
-                    alt="messenger-icon" title="Messenger"
-                  />
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li>Penjual:</li>
-          <li>Juniarta Mahmud</li>
-          <li><button>Lihat Kontak</button></li>
-        </ul>
-      </div>
+      <button style="background: blue; width: 100%; color: white">
+        Semua Size
+      </button>
     </div>
-    <button style="background: blue; width: 100%; color: white">
-      Semua Size
-    </button>
   </div>
 </template>
 
 <script>
+// import axios from "axios";
+
 export default {
   name: "Harga",
-  components: {
-    
+  props: ['price'],
+  methods: {
+    formatRupiah(params) {
+      let formatter = new Intl.NumberFormat('id-ID', {
+        style: 'currency',
+        currency: 'IDR',
+      });
+      return formatter.format(params);
+    },
+    formatDate(params) {
+      let options = {year: 'numeric', month: 'long', day: 'numeric' };
+      let today  = new Date(params);
+      return today.toLocaleDateString("id-ID", options);
+    }
   },
+  // computed: {
+    
+  // },
 };
 </script>
 
@@ -94,9 +121,9 @@ ul {
 }
 
 .social-group li {
- margin-right: 5px;
- flex-wrap: wrap;
- justify-content: flex-end;
+  margin-right: 5px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
 }
 .social-group img {
   width: 30px;
