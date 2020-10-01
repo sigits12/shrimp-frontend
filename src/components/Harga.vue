@@ -17,7 +17,7 @@
         </div>
         <div class="content-social">
           <ul>
-            <li><div class="tanggal">{{formatDate(price.date)}}</div></li>
+            <li class="list-kanan">{{formatDate(price.date)}}</li>
             <li>
               <div class="social-group">
                 <ul>
@@ -53,21 +53,25 @@
                 </ul>
               </div>
             </li>
-            <li>Penjual:</li>
-            <li>{{price.creator.name}}</li>
-            <li><button>Lihat Kontak</button></li>
+            <li class="list-kanan">Penjual:</li>
+            <li class="list-kanan"><img v-if="price.creator.email_verified === true" :src="require('@/assets/img/verified.svg')" alt="verified-icon" title="Verified" style="width:20px;height:20px; margin-right: 5px;">{{price.creator.name}}</li>
+            <li class="list-kanan"><button>Lihat Kontak</button></li>
           </ul>
         </div>
       </div>
-      <button style="background: blue; width: 100%; color: white">
-        Semua Size
-      </button>
+      <router-link
+        :to="{name: 'detail', params: { price: price } }"
+        v-slot="{ href, navigate}"
+        >
+          <button :href="href" @click="navigate" class='btn-semua-size'>
+            Semua Size
+          </button>
+      </router-link>
     </div>
   </div>
 </template>
 
 <script>
-// import axios from "axios";
 
 export default {
   name: "Harga",
@@ -86,9 +90,6 @@ export default {
       return today.toLocaleDateString("id-ID", options);
     }
   },
-  // computed: {
-    
-  // },
 };
 </script>
 
@@ -110,7 +111,7 @@ ul {
   width: 35%;
 }
 
-.tanggal {
+.list-kanan {
   display: flex;
   justify-content: flex-end;
 }
@@ -128,5 +129,13 @@ ul {
 .social-group img {
   width: 30px;
   height: 30px;
+}
+.btn-semua-size{
+    background: blue; 
+    width: 100%; 
+    color: white;
+    border-radius: 3px;
+    border: none;
+    height: 30px;
 }
 </style>

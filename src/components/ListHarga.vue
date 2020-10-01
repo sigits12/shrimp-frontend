@@ -1,9 +1,7 @@
 <template>
   <div class="card">
-    <h5 class="card-header">List Harga Udang</h5>
-    <!-- <div class="card-body"> -->
+    <div class="card-header">List Harga Udang</div>
       <Harga v-for="(price, index) in prices" :price="price" :key="index"/>
-    <!-- </div> -->
   </div>
 </template>
 
@@ -31,8 +29,8 @@ export default {
         .catch((error) => console.error(error));
     },
   },
-  computed: {
-    
+  created() {
+    this.getHarga(this.$store.state.lokasi);
   },
   watch: {
     '$store.state.lokasi': function() {
@@ -41,3 +39,5 @@ export default {
   },
 };
 </script>
+<style>
+</style>

@@ -6,8 +6,8 @@ Vue.use(Vuex);
 export const store = new Vuex.Store({
   state: {
     lokasi: {
-      region_id: String,
-      search: String
+      region_id: '35',
+      search: 'Jawa Timur'
     }
   },
   getters: {

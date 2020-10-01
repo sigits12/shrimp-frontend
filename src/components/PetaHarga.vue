@@ -40,9 +40,11 @@ export default {
   name: "PetaHarga",
   data() {
     return {
-      // regions: json.data,
       regions: [],
     };
+  },
+  created() {
+    this.setLokasi(this.$store.state.lokasi);
   },
   methods: {
     setLokasi(lokasi) {
@@ -69,8 +71,8 @@ export default {
     mapCenter() {
       if (!this.regions.length) {
         return {
-          lat: -6.893721,
-          lng: 107.609,
+          lat: -7.53606390,
+          lng: 112.23840170,
         };
       }
       return {

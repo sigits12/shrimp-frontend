@@ -38,14 +38,6 @@ export default {
         loading(false);
       });
     }, 350),
-    // setLokasi(event) {
-    //   // this.$emit("inputData", this.selected);
-    //   console.log(event.id);
-    //   // alert('ok');
-    //   // this.$emit("input", val);
-
-    //   // this.selected = null;
-    // }
   },
   created() {
     axios.get('/regions')
