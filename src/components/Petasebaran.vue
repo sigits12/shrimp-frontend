@@ -3,7 +3,7 @@
     <div class="card-header">Persebaran Harga Udang Size 100</div>
       <PetaHarga/>
       <div class="card-footer">
-        2 days ago
+        Keterangan
       </div>
   </div>
 </template>

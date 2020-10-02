@@ -4,8 +4,8 @@ import vSelect from 'vue-select'
 import * as VueGoogleMaps from 'vue2-google-maps';
 import { BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue'
 import { store } from './store/store';
-// import VueRouter from 'vue-router';
 import router from './routes';
+
 
 import 'vue-select/dist/vue-select.css';
 import 'bootstrap/dist/css/bootstrap.css'
@@ -30,4 +30,9 @@ new Vue({
   store: store,
   router: router,
   render: h => h(App),
+  watch: {
+    $route(to, from) {
+      console.log(to, from);
+    }
+  },
 }).$mount('#app')
